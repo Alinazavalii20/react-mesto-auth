@@ -1,6 +1,6 @@
 # Проект: Mesto-react
 
-Проект на GitHub Pages https://alinazavalii20.github.io/mesto-react/
+Проект на GitHub Pages https://alinazavalii20.github.io/react-mesto-auth/
 
 ### Описание проекта и функциональность.
 
