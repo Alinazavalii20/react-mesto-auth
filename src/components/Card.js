@@ -6,13 +6,11 @@ function Card(props) {
     const currentUser = React.useContext(CurrentUserContext);
 
     const isOwn = props.data.owner._id === currentUser._id;
-    const isLiked = props.data.likes.some(i => i._id === currentUser._id);
-
     const cardDeleteButtonClassName = (
-        `element__button-delet ${isOwn ? 'element__button-delet_visible' : 'element__button-delet_hidden'}`
+        `element__button-delet ${!isOwn ?  'element__button-delet_visible' : 'element__button-delet_hidden'}`
     );
 
-
+    const isLiked = props.data.likes.some(i => i._id === currentUser._id);
     const cardLikeButtonClassName = (
         `element__button-like ${isLiked ? 'element__button-like_active' : ''}`
     );
@@ -26,7 +24,7 @@ function Card(props) {
     }
 
     function handleSubmitPopup() {
-        props.handlePopupWithSubmit();
+        props.handlePopupWithSubmit(props.data);
     }
 
     return (

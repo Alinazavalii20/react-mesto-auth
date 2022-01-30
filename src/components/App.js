@@ -145,10 +145,6 @@ function App() {
     setDeleteCard(true);
   }
 
- // function openInfoTooltipPopup() {
- //   setisInfoTooltipOpen(true);
- // }
-
   const closeAllPopups = () => {
     setIsEditProfilePopupOpen(false)
     setIsAddPlacePopupOpen(false)
@@ -191,7 +187,7 @@ function App() {
 
   function handleCardDelete(data) {
     api.deleteCard(data._id)
-      .then(setCards((cards) => cards.filter((c) => c._id !== data._id && c),
+      .then(setCards((cards) => cards.filter((c) => c._id !== data._id ),
         closeAllPopups()))
       .catch((err) => console.log(err))
   }
@@ -276,9 +272,7 @@ function App() {
         <InfoTooltip
           isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups}
-          infoTooltipStatus={infoTooltipStatus}
-          //handelInfoTooltip={openInfoTooltipPopup}
-        ></InfoTooltip>
+          infoTooltipStatus={infoTooltipStatus}></InfoTooltip>
 
         <ImagePopup data={selectedCard} onClose={closeAllPopups} />
       </div>

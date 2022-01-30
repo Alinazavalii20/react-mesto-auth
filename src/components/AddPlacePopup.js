@@ -17,7 +17,8 @@ function AddPlacePopup(props) {
 
         props.handleAddCard({
             name: nameCard,
-            link: linkCard})
+            link: linkCard
+        })
     }
 
     React.useEffect(() => {
@@ -35,15 +36,26 @@ function AddPlacePopup(props) {
             onClose={props.onClose}
             onSubmit={handleSubmit}>
 
-                <input id="name-card" name="name" className="popup__input popup__input_type_place"
-                type="text" placeholder="Название" minLength={2} maxLength={30}
+            <input
+                id="name-card"
+                name="name"
+                value={nameCard}
+                className="popup__input popup__input_type_place"
+                type="text"
+                placeholder="Название"
+                minLength={2} maxLength={30}
                 onChange={handleAddPlaceName} required />
-                <span id="name-card-error" className="popup__input-error place-input-error" />
+            <span id="name-card-error" className="popup__input-error place-input-error" />
 
-               <input name="link" id="url-card" className="popup__input popup__input_type_link"
-                type="url" placeholder="Ссылка на картинку"
+            <input
+                id="url-card"
+                name="link"
+                value={linkCard}
+                className="popup__input popup__input_type_link"
+                type="url"
+                placeholder="Ссылка на картинку"
                 onChange={handleAddPlaceLink} required />
-                <span id="url-card-error" className="popup__input-error link-input-error" />
+            <span id="url-card-error" className="popup__input-error link-input-error" />
         </PopupWithForm>
     )
 }
